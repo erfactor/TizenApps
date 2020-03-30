@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.705
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tetris", "Tetris\Tetris\Tetris.csproj", "{F4EDB253-997E-4AE4-91CA-AB6DA273BC31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tetris.Tizen.Wearable", "Tetris\Tetris.Tizen.Wearable\Tetris.Tizen.Wearable.csproj", "{DA2728A0-BC5B-4FE9-9BD5-BCE9F76F6AFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4EDB253-997E-4AE4-91CA-AB6DA273BC31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4EDB253-997E-4AE4-91CA-AB6DA273BC31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4EDB253-997E-4AE4-91CA-AB6DA273BC31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4EDB253-997E-4AE4-91CA-AB6DA273BC31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA2728A0-BC5B-4FE9-9BD5-BCE9F76F6AFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA2728A0-BC5B-4FE9-9BD5-BCE9F76F6AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA2728A0-BC5B-4FE9-9BD5-BCE9F76F6AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA2728A0-BC5B-4FE9-9BD5-BCE9F76F6AFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C7847EA8-8DA7-4BCA-9AD7-E7E09837D1BB}
+	EndGlobalSection
+EndGlobal

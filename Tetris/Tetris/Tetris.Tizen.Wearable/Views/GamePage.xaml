@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<cui:CirclePage xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:cui ="clr-namespace:Tizen.Wearable.CircularUI.Forms;assembly=Tizen.Wearable.CircularUI.Forms"
+                xmlns:viewModels="clr-namespace:Tetris.ViewModels;assembly=Tetris"
+                xmlns:local="clr-namespace:Tetris.Tizen.Wearable.CustomLayouts"
+                xmlns:anims="clr-namespace:Tetris.Tizen.Wearable.Animations"
+                x:Class="Tetris.Tizen.Wearable.Views.GamePage"
+                NavigationPage.HasNavigationBar="False"
+                RotaryFocusObject="{Binding BindingContext, Source={x:Reference GamePageClass}}"
+                x:Name="GamePageClass">
+
+    <cui:CirclePage.BindingContext>
+        <viewModels:GameViewModel />
+    </cui:CirclePage.BindingContext>
+
+    <cui:CirclePage.Content>
+        <AbsoluteLayout BackgroundColor="#0c0c0c">
+            <Image Source="BG_final.png" />
+            <local:GridView BackgroundColor="Transparent"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="Fill"
+                            AbsoluteLayout.LayoutBounds="0.5, 20, 198, 318"
+                            AbsoluteLayout.LayoutFlags="XProportional"
+                            ColumnSpacing="2"
+                            RowSpacing="2"
+                            ItemsSource="{Binding Bricks}"
+                            ColumnCount="{Binding ColumnCount}"
+                            RowCount="{Binding RowCount}">
+                <local:GridView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <local:BrickView Color="{Binding Color}" />
+                        </ViewCell>
+                    </DataTemplate>
+                </local:GridView.ItemTemplate>
+            </local:GridView>
+
+            <local:GridView HorizontalOptions="Fill"
+                            VerticalOptions="Fill"
+                            AbsoluteLayout.LayoutBounds="305, 0.5, 38, 78"
+                            AbsoluteLayout.LayoutFlags="YProportional"
+                            ColumnSpacing="2"
+                            RowSpacing="2"
+                            ItemsSource="{Binding NextShape}"
+                            ColumnCount="2"
+                            RowCount="4">
+                <local:GridView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <local:BrickView Color="{Binding Color}" />
+                        </ViewCell>
+                    </DataTemplate>
+                </local:GridView.ItemTemplate>
+            </local:GridView>
+
+            <Image Source="progress1.png"
+                   AbsoluteLayout.LayoutBounds="0, 242, 69, 112"
+                   IsVisible="{Binding Progress1}" />
+            <Image Source="progress2.png"
+                   AbsoluteLayout.LayoutBounds="0, 215, 72, 142"
+                   IsVisible="{Binding Progress2}" />
+            <Image x:Name="progress3"
+                   Source="progress3.png"
+                   AbsoluteLayout.LayoutBounds="0, 187, 73, 169"
+                   IsVisible="{Binding Progress3}" />
+            <Label AbsoluteLayout.LayoutBounds=".5, .5, 360, 65"
+                   AbsoluteLayout.LayoutFlags="PositionProportional"
+                   TextColor="#FAFAFA"
+                   FontFamily="BreezeSans"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   Text="{Binding LevelText}"
+                   FontSize="15">
+            </Label>
+            <Image x:Name="blockcurtain"
+                   Source="blockcurtain.png"
+                   AbsoluteLayout.LayoutBounds="81, -1041, 198, 1041">
+                <Image.Triggers>
+                    <DataTrigger TargetType="Image"
+                                 Binding="{Binding ShowCurtain}"
+                                 Value="True">
+                        <DataTrigger.EnterActions>
+                            <anims:ImageAnimationTriggerAction />
+                        </DataTrigger.EnterActions>
+                    </DataTrigger>
+                </Image.Triggers>
+            </Image>
+
+            <Label AbsoluteLayout.LayoutBounds="26, 151, 30, 60"
+                   TextColor="#FAFAFA"
+                   FontFamily="BreezeSans"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   Text="{Binding Level}"
+                   FontAttributes="Bold"
+                   FontSize="10" />
+            <Image Source="blocks_dark.png"
+                   AbsoluteLayout.LayoutBounds=".5, 300, 238, 58"
+                   AbsoluteLayout.LayoutFlags="XProportional" />
+            <Image Source="gameover.png"
+                   IsVisible="{Binding GameOver}"
+                   AbsoluteLayout.LayoutBounds="43, 0, 273, 360" />
+            <BoxView x:Name="PressArea"
+                     AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                     AbsoluteLayout.LayoutFlags="SizeProportional"
+                     BackgroundColor="Transparent">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OnScreenTapCommand}" />
+                </BoxView.GestureRecognizers>
+            </BoxView>
+        </AbsoluteLayout>
+    </cui:CirclePage.Content>
+
+    <cui:CirclePage.ActionButton>
+        <cui:ActionButtonItem Text="Play"
+                              IsVisible="{Binding GameOver}"
+                              Command="{Binding PlayCommand}" />
+    </cui:CirclePage.ActionButton>
+
+</cui:CirclePage>

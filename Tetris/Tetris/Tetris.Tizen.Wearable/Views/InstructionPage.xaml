@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<cui:CirclePage xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:cui ="clr-namespace:Tizen.Wearable.CircularUI.Forms;assembly=Tizen.Wearable.CircularUI.Forms"
+                xmlns:viewModels="clr-namespace:Tetris.ViewModels;assembly=Tetris"
+                x:Class="Tetris.Tizen.Wearable.Views.InstructionPage"
+                NavigationPage.HasNavigationBar="False"
+                RotaryFocusObject="{x:Reference circleView}">
+
+    <cui:CirclePage.BindingContext>
+        <viewModels:InstructionViewModel />
+    </cui:CirclePage.BindingContext>
+
+    <cui:CirclePage.Content>
+        <cui:CircleScrollView x:Name="circleView"
+                              BackgroundColor="#202020">
+            <StackLayout>
+                <Image Source="instruction.png"
+                       Margin="0, 50, 0, 100" />
+            </StackLayout>
+        </cui:CircleScrollView>
+    </cui:CirclePage.Content>
+
+    <cui:CirclePage.ActionButton>
+        <cui:ActionButtonItem Text="Play"
+                              Command="{Binding GoToGamePageCommand}" />
+    </cui:CirclePage.ActionButton>
+
+</cui:CirclePage>

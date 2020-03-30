@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<cui:CirclePage xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:cui ="clr-namespace:Tizen.Wearable.CircularUI.Forms;assembly=Tizen.Wearable.CircularUI.Forms"
+                xmlns:viewModels="clr-namespace:Tetris.ViewModels;assembly=Tetris"
+                x:Class="Tetris.Tizen.Wearable.Views.MainPage"
+                NavigationPage.HasNavigationBar="False">
+
+    <cui:CirclePage.BindingContext>
+        <viewModels:MainViewModel />
+    </cui:CirclePage.BindingContext>
+
+    <cui:CirclePage.Content>
+        <AbsoluteLayout>
+            <Image Source="BG_welcome.png" />
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                         AbsoluteLayout.LayoutFlags="SizeProportional">
+                <Image Source="icon.png"
+                       Margin="0, 33, 0, 0" />
+                <Label Margin="0, 7, 0, 0"
+                       Text="Welcome"
+                       TextColor="#FAFAFA"
+                       FontFamily="BreezeSans"
+                       HorizontalOptions="Center" />
+                <Label Margin="10, 12, 10, 0"
+                       Text="Tetris is a puzzle game where you make lines of blocks to survive!"
+                       TextColor="#FAFAFA"
+                       FontSize="7"
+                       FontFamily="BreezeSans"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </cui:CirclePage.Content>
+
+    <cui:CirclePage.ActionButton>
+        <cui:ActionButtonItem Text="Next"
+                              Command="{Binding GoToInstructionPageCommand}" />
+    </cui:CirclePage.ActionButton>
+
+</cui:CirclePage>

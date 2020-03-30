@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Tetris.Tizen.Wearable.CustomLayouts"
+             x:Class="Tetris.Tizen.Wearable.CustomLayouts.BrickView"
+             x:Name="BrickWiewClass">
+    
+    <ContentView.Content>
+        <AbsoluteLayout>
+            <local:MaskedImage Source="tetris_-brick.png"
+                               ColorMask="{Binding Color, Source={x:Reference BrickWiewClass}}" />
+            <Image x:Name="_spark"
+                   Source="tetris_-background.png"
+                   IsVisible="True" />
+        </AbsoluteLayout>
+    </ContentView.Content>
+</ContentView>
